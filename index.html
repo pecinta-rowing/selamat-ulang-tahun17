@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harapan & Doa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="latarTeknologi" aria-hidden="true"></canvas>
+
+  <!-- Gerbang pembuka: klik pertama diperlukan agar browser mengizinkan lagu diputar -->
+  <div class="gerbang" id="gerbang">
+    <p class="gerbang__kecil">Ada satu hari yang hanya milikku</p>
+    <h1 class="gerbang__judul">Dunia ini awalnya hitam dan putih.</h1>
+    <button class="tombol tombol--terang" id="btnBuka" type="button">Buka dan putar lagu</button>
+  </div>
+
+  <header class="nav">
+    <a href="#atas" class="nav__logo">Monokrom</a>
+    <nav class="nav__menu" aria-label="Navigasi utama">
+      <a href="#ultah">Ulang tahun</a>
+      <a href="#doa">Doa</a>
+      <a href="#harapan">Harapan</a>
+      <a href="#linimasa">Linimasa</a>
+    </nav>
+  </header>
+
+  <main id="atas">
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="hero__untuk">Selamat ulang tahun, <span id="namaTujuan">aku</span></p>
+      <h2 class="hero__judul" aria-label="Harapan dan doa">
+        <span class="huruf-wrap" id="judulHuruf">Harapan</span>
+        <span class="hero__dan">&amp;</span>
+        <span class="huruf-wrap" id="judulHuruf2">Doa</span>
+      </h2>
+      <p class="hero__teks">Halaman ini mulai dengan abu-abu. Setiap doa yang kuaminkan dan harapan yang kutulis akan menambah warnanya.</p>
+      <a href="#ultah" class="tombol">Lihat hari istimewaku</a>
+      <div class="warna-meter" aria-hidden="true">
+        <div class="warna-meter__isi" id="meterIsi"></div>
+      </div>
+    </section>
+
+    <!-- ULANG TAHUN -->
+    <section class="bagian" id="ultah">
+      <h2 class="bagian__judul">Hari ulang tahunku</h2>
+      <p class="bagian__ket" id="ultahKet">Satu tahun lagi berhasil dilewati.</p>
+
+      <div class="statistik-grid">
+        <div class="statistik"><span class="statistik__angka" id="umur">0</span><span class="statistik__label">tahun usiaku</span></div>
+        <div class="statistik"><span class="statistik__angka" id="hari">0</span><span class="statistik__label">hari sudah kujalani</span></div>
+        <div class="statistik"><span class="statistik__angka" id="hitung">0</span><span class="statistik__label" id="hitungLabel">hari menuju ulang tahun berikutnya</span></div>
+      </div>
+
+      <div class="kue-area">
+        <div class="kue" id="kue">
+          <div class="kue__lilin"><span class="kue__api" id="kueApi"></span></div>
+          <div class="kue__atas"></div>
+          <div class="kue__bawah"></div>
+        </div>
+        <button class="tombol" id="btnLilin" type="button">Tiup lilin</button>
+        <p class="kue__pesan" id="pesanLilin" aria-live="polite">Buat satu permintaan dulu, lalu tiup.</p>
+      </div>
+    </section>
+
+    <!-- DOA -->
+    <section class="bagian" id="doa">
+      <h2 class="bagian__judul">Doaku di usia baru</h2>
+      <p class="bagian__ket">Klik Aamiin untuk Doa doa yang kuinginkan.</p>
+
+      <div class="doa-daftar">
+        <article class="doa">
+          <p class="doa__teks">Semoga aku selalu diberi kesehatan, Dari badan maupun hati.</p>
+          <button class="aamiin" type="button" data-aamiin>
+            <span class="aamiin__label">Aamiin</span>
+            <span class="aamiin__jumlah" data-jumlah>0</span>
+          </button>
+        </article>
+
+        <article class="doa">
+          <p class="doa__teks">Semoga setiap langkah yang berat dimudahkan, dan setiap lelahku ada yang menemani.</p>
+          <button class="aamiin" type="button" data-aamiin>
+            <span class="aamiin__label">Aamiin</span>
+            <span class="aamiin__jumlah" data-jumlah>0</span>
+          </button>
+        </article>
+
+        <article class="doa">
+          <p class="doa__teks">Semoga rezekiku cukup, hatiku lapang, dan hidupku selalu dikelilingi orang-orang baik.</p>
+          <button class="aamiin" type="button" data-aamiin>
+            <span class="aamiin__label">Aamiin</span>
+            <span class="aamiin__jumlah" data-jumlah>0</span>
+          </button>
+        </article>
+
+        <article class="doa">
+          <p class="doa__teks">Semoga mimpi yang kusimpan diam-diam satu per satu menemukan jalannya.</p>
+          <button class="aamiin" type="button" data-aamiin>
+            <span class="aamiin__label">Aamiin</span>
+            <span class="aamiin__jumlah" data-jumlah>0</span>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- HARAPAN -->
+    <section class="bagian bagian--gelap" id="harapan">
+      <h2 class="bagian__judul">Harapanku</h2>
+      <p class="bagian__ket">Harapan untuk usia baru.</p>
+
+      <form class="harapan-form" id="formHarapan" autocomplete="off">
+        <label class="sr-only" for="inputHarapan">Tulis harapanmu</label>
+        <input id="inputHarapan" type="text" maxlength="90" placeholder="Di usia baru, aku berharap…" required>
+        <button class="tombol tombol--terang" type="submit">Simpan harapan</button>
+      </form>
+
+      <ul class="harapan-daftar" id="daftarHarapan" aria-live="polite"></ul>
+      <p class="kosong" id="kosongHarapan">Belum ada harapan. Tulis yang pertama di atas.</p>
+    </section>
+
+    <!-- LINIMASA -->
+    <section class="bagian" id="linimasa">
+      <h2 class="bagian__judul">Perjalananku</h2>
+      <p class="bagian__ket"></p>
+
+      <ol class="linimasa" id="linimasaList">
+        <li class="momen">
+          <button class="momen__btn" type="button" aria-expanded="false">
+            <span class="momen__titik"></span>
+            <span class="momen__waktu">Januari</span>
+            <span class="momen__judul">Awal yang sederhana</span>
+          </button>
+          <div class="momen__isi"><p>Tahun dimulai pelan-pelan. Belum banyak yang pasti, tapi ada keyakinan kecil bahwa semuanya akan baik-baik saja.</p></div>
+        </li>
+
+        <li class="momen">
+          <button class="momen__btn" type="button" aria-expanded="false">
+            <span class="momen__titik"></span>
+            <span class="momen__waktu">April</span>
+            <span class="momen__judul">Hari-hari yang menguji</span>
+          </button>
+          <div class="momen__isi"><p>Kalo dan pertemuan pasti ada perpisahan. bulan yang banyak memberiku pengalaman hidup dan pertemuan orang yang perna ku kenal seblumnya</p></div>
+        </li>
+
+        <li class="momen">
+          <button class="momen__btn" type="button" aria-expanded="false">
+            <span class="momen__titik"></span>
+            <span class="momen__waktu">Agustus</span>
+            <span class="momen__judul">Keinginan yang mulai banyak terwujud</span>
+          </button>
+          <div class="momen__isi"><p>Satu kabar baik datang. Tidak besar, tapi cukup untuk membuat semuanya terlihat berbeda.</p></div>
+        </li>
+
+        <li class="momen">
+          <button class="momen__btn" type="button" aria-expanded="false">
+            <span class="momen__titik"></span>
+            <span class="momen__waktu">September</span>
+            <span class="momen__judul">Belajar bersyukur</span>
+          </button>
+          <div class="momen__isi"><p>Hal-hal kecil mulai terasa berharga: secangkir kopi hangat, pesan singkat, dan tawa di waktu yang tak terduga.</p></div>
+        </li>
+
+        <li class="momen">
+          <button class="momen__btn" type="button" aria-expanded="false">
+            <span class="momen__titik"></span>
+            <span class="momen__waktu">November</span>
+            <span class="momen__judul">Melangkah lagi</span>
+          </button>
+          <div class="momen__isi"><p>Dengan doa dan harapan di tangan, aku lanjut berjalan. Dunia ini penuh warna kalau aku mau terus melihat.</p></div>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="kaki">
+    <p>Dibuat untuk diriku sendiri, dengan harapan baik.</p>
+  </footer>
+
+  <!-- Kontrol musik -->
+  <button class="musik" id="btnMusik" type="button" aria-label="Jeda musik" aria-pressed="true">
+    <span class="musik__bar"></span><span class="musik__bar"></span><span class="musik__bar"></span>
+  </button>
+
+  <audio id="lagu" src="monokrom.mp3" loop preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
